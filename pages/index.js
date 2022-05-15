@@ -30,7 +30,7 @@ export default function Home() {
 
         <div className={styles.searchgroup}>
         <div><Select options={countries} className={styles.searchbox} onChange={handleChange} defaultValue={countries[0].value} />  </div>
-        <div>{!!sval ? <Image src={`/countryflags/${sval.toLowerCase()}.svg`} alt={sval}  width="100" height="40" /> : null}  </div>
+        <div className='flagDiv'>{!!sval ? <Image src={`/countryflags/${sval.toLowerCase()}.svg`} alt={sval} width="100" height="40" /> : null}  </div>
         </div>
          
              <button className={styles.searchbtn} type="submit" value="Submit" >&#128269;</button> 
