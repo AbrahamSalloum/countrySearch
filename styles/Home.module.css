@@ -54,6 +54,28 @@
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+  display: flex
+}
+
+.searchbox {
+  margin: 4rem 0 0 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  width: 450px; 
+  
+}
+
+.searchgroup {
+  display: flex;
+  align-items:flex-end;
+  height: 100px
+}
+
+.searchbtn {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+ 
 }
 
 .code {
@@ -83,6 +105,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+  min-width:300px;
 }
 
 .card:hover,
