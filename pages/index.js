@@ -19,11 +19,11 @@ export default function Home() {
         return 
       }
   
-      const srchimg = await fetch(`http://10.1.1.11:3000/api/img/${term}`)
+      const srchimg = await fetch(`http://10.1.1.11:3000/api/img/${term} tourist destination`)
       const images = await srchimg.json()
       
       setImages((prevstate)=> {
-     return    {...prevstate, [term]: images.results[0].urls.small}
+     return    {...prevstate, [term]: images.results[0].urls.full}
     })
    
     }
@@ -47,14 +47,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>✈️ Places</title>
         <meta name="description" content="Search Country Data" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
        
-        <h1 className={styles.title}>Country Data Search</h1>
+        <h1 className={styles.title}>Places</h1>
        
 
         <div className={styles.searchgroup}>
@@ -69,14 +69,14 @@ export default function Home() {
 
         <div className={styles.grid} >
           <Link href="/country/Japan">
-            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${imagesList["japan"]})`}}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${imagesList["japan"]})`, "backgroundSize": "contain"}}>
               <h2>Japan &rarr;</h2>
               <p><i>こんにちは - Konnichiwa</i></p>
             </div>
           </Link>
 
           <Link href="/country/UK" className={styles.card}>
-            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["UK"]})`}}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${imagesList["UK"]})`, "backgroundSize": "cover"}}>
               <h2>UK</h2>
               <p><i>Hello</i></p>
             </div>
@@ -86,7 +86,7 @@ export default function Home() {
             href="/country/france"
             className={styles.card}
           >
-            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["France"]})`}}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${imagesList["France"]})`, "backgroundSize": "cover"}}>
               <h2>France</h2>
               <p><i>Salut</i></p>
             </div>
@@ -96,7 +96,7 @@ export default function Home() {
             href="/country/bali"
             className={styles.card}
           >
-            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["Bali"]})`}}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(${imagesList["Bali"]})`, "backgroundSize": "cover"}}>
               <h2>Bali</h2>
               <p><i>Om suastiastu</i></p>
             </div>
@@ -104,8 +104,8 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-      </footer>
+      {/* <footer className={styles.footer}>
+      </footer> */}
     </div>
   )
 }
