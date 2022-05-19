@@ -111,6 +111,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
   min-width:300px;
+  background-size: contain;
 }
 
 .card:hover,
@@ -118,17 +119,20 @@
 .card:active {
   color: #0070f3;
   border-color: #0070f3;
+  background-size: contain;
 }
 
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
+  background-size: contain;
 }
 
 .card p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+  background-size: contain;
 }
 
 .logo {

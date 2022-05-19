@@ -7,10 +7,38 @@ import Select from 'react-select'
 import Link from 'next/link'
 export default function Home() {
 
+  const [imagesList, setImages] = useState({})
   const [sval, setSval] = useState('')
+ 
+
+
+  useEffect(() => {
+
+    const imgsrch = async (term) => {
+      if(!!imagesList[term] == true) {
+        return 
+      }
+  
+      const srchimg = await fetch(`http://10.1.1.11:3000/api/img/${term}`)
+      const images = await srchimg.json()
+      
+      setImages((prevstate)=> {
+     return    {...prevstate, [term]: images.results[0].urls.small}
+    })
+   
+    }
+    
+   
+    ["japan", "UK", "France", "Bali"].map((p) => imgsrch(p))
+    console.log(imagesList)
+   
+  }, [])
+
+
+  
 
   const handleChange = (c) => {
-    // debugger; 
+    
     const code = countries.find(ele => ele.value == c.value)
     if (!!code) setSval(code['code'])
 
@@ -25,6 +53,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+       
         <h1 className={styles.title}>Country Data Search</h1>
        
 
@@ -38,16 +67,16 @@ export default function Home() {
           
        
 
-        <div className={styles.grid}>
+        <div className={styles.grid} >
           <Link href="/country/Japan">
-            <div className={styles.card}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${imagesList["japan"]})`}}>
               <h2>Japan &rarr;</h2>
               <p><i>こんにちは - Konnichiwa</i></p>
             </div>
           </Link>
 
           <Link href="/country/UK" className={styles.card}>
-            <div className={styles.card}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["UK"]})`}}>
               <h2>UK</h2>
               <p><i>Hello</i></p>
             </div>
@@ -57,7 +86,7 @@ export default function Home() {
             href="/country/france"
             className={styles.card}
           >
-            <div className={styles.card}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["France"]})`}}>
               <h2>France</h2>
               <p><i>Salut</i></p>
             </div>
@@ -67,7 +96,7 @@ export default function Home() {
             href="/country/bali"
             className={styles.card}
           >
-            <div className={styles.card}>
+            <div className={styles.card} style={{"background": `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.5)), url(${imagesList["Bali"]})`}}>
               <h2>Bali</h2>
               <p><i>Om suastiastu</i></p>
             </div>
