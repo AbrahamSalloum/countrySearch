@@ -32,6 +32,7 @@
 
 .title a {
   color: #0070f3;
+ 
   text-decoration: none;
 }
 
@@ -67,12 +68,16 @@
   height: 40; 
 }
 
+.searchbox .sbox__control {
+  border-radius: 10px;
+}
+
 .searchbox {
   margin: 4rem 0 0 0;
   line-height: 1.5;
   font-size: 1.5rem;
-  width: 450px; 
-  
+  width: 500px; 
+  background-color: 'red';
 }
 
 .searchgroup {
@@ -107,7 +112,7 @@
 }
 
 .card {
-  background-size: 100% 100%;
+ 
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
@@ -118,28 +123,29 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
   min-width:300px;
+  background-size: cover; 
  
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
+  /* color: #0070f3; */
   border-color: #0070f3;
-  background-size: contain;
+  
 }
 
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
-  background-size: contain;
+ 
 }
 
 .card p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
-  background-size: contain;
+  
 }
 
 .logo {
